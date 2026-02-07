@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Grid Blog Layout</title>
+
+  <style>
+    /* ---------- CSS Reset ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- Sticky Navigation ---------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 2rem;
+    }
+
+    .navbar ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      font-weight: 600;
+    }
+
+    .navbar li:hover {
+      color: #2563eb;
+    }
+
+    /* ---------- Layout Container ---------- */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---------- Blog Grid ---------- */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    /* ---------- Article Card ---------- */
+    .article {
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .article:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .article-image {
+      overflow: hidden;
+    }
+
+    .article-image img {
+      transition: transform 0.4s ease;
+    }
+
+    .article:hover img {
+      transform: scale(1.05);
+    }
+
+    .article-content {
+      padding: 1.25rem;
+    }
+
+    .article h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .article p {
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    /* ---------- Responsive Breakpoints ---------- */
+    @media (max-width: 1024px) {
+      /* Tablet */
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      /* Mobile */
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Articles</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <section class="blog-grid">
+      <article class="article">
+        <div class="article-image">
+          <img src="https://picsum.photos/600/400?random=1" alt="Article 1">
+        </div>
+        <div class="article-content">
+          <h2>Designing with CSS Grid</h2>
+          <p>Learn how CSS Grid can simplify complex layouts and make your designs more flexible and responsive.</p>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-image">
+          <img src="https://picsum.photos/600/400?random=2" alt="Article 2">
+        </div>
+        <div class="article-content">
+          <h2>Responsive Web Design Tips</h2>
+          <p>Best practices for creating layouts that adapt beautifully across desktops, tablets, and phones.</p>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-image">
+          <img src="https://picsum.photos/600/400?random=3" alt="Article 3">
+        </div>
+        <div class="article-content">
+          <h2>Modern CSS Techniques</h2>
+          <p>Explore modern CSS features that improve performance, maintainability, and user experience.</p>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-image">
+          <img src="https://picsum.photos/600/400?random=4" alt="Article 4">
+        </div>
+        <div class="article-content">
+          <h2>Typography for the Web</h2>
+          <p>Typography plays a crucial role in readability and aesthetics—learn how to get it right.</p>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-image">
+          <img src="https://picsum.photos/600/400?random=5" alt="Article 5">
+        </div>
+        <div class="article-content">
+          <h2>Improving UX with Microinteractions</h2>
+          <p>Small animations and interactions can have a huge impact on user engagement.</p>
+        </div>
+      </article>
+
+      <article class="article">
+        <div class="article-image">
+          <img src="https://picsum.photos/600/400?random=6" alt="Article 6">
+        </div>
+        <div class="article-content">
+          <h2>Accessibility Essentials</h2>
+          <p>Build inclusive websites by following accessibility guidelines and best practices.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
